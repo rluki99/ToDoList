@@ -15,16 +15,28 @@
   <header class="header">
     <div class="wrapper">
       <h1 class="header__heading"><span>What</span>ToDo</h1>
-      <input type="text" class="header__input" placeholder="Wpisz treść zadania...">
-      <button class="header__btn">Add</button>
+      <div class="header__input-box">
+        <input type="text" class="header__input-txt" placeholder="Task...">
+        <input type="date" class="header__input-date">
+        <select class="header__select" id="project-select">
+          <option value="" disabled="" selected>Choose project</option>
+          <option value="demo">Demo</option>
+          <option value="demo2">Demo2</option>
+        </select>
+        <label for="priority" class="custom-checkbox">
+          <input type="checkbox" id="priority" class="header__input-importance">
+          <i class="fa-solid fa-star star"></i>
+        </label>
+        <button class="header__btn">Add</button>
+      </div>
     </div>
   </header>
 
   <main class="main">
     <section class="side">
       <h3 class="side__heading">Home</h3>
-      <button class="side__item side__item--active side__item-home"><i class="fa-regular fa-calendar-check"></i>All Tasks</button>
-      <button class="side__item side__item-home"><i class="fa-regular fa-calendar"></i>Lorem, ipsum dolor.</button>
+      <button class="side__item side__item--active side__item-home"><i class="fa-regular fa-calendar-check"></i>All
+        Tasks</button>
       <button class="side__item side__item-home"><i class="fa-regular fa-star"></i>Important</button>
       <h3 class="side__heading">Projects</h3>
       <button class="side__item side__add-btn"><i class="fa-solid fa-plus"></i>Add projects</button>
@@ -34,32 +46,38 @@
     </section>
 
     <section class="todo">
-      <h3 class="todo__heading">Tasks:</h3>
-      <p class="todo__alert">Brak zadań na liście.</p>
-      <ul>
-        <li class="todo__li" id="test">Wypić kawę <div class="todo__tools">
-              <button class="todo__btn todo__btn--complete"><i class="fas fa-check"></i></button>
-              <button class="todo__btn todo__btn--edit">EDIT</button>
-              <button class="todo__btn todo__btn--delete"><i class="fas fa-times"></i></button>
-            </div>
-          </li>
-          <li class="todo__li" id="test2">Zjeść śniadanie <div class="todo__tools">
-              <button class="todo__btn todo__btn--complete"><i class="fas fa-check"></i></button>
-              <button class="todo__btn todo__btn--edit">EDIT</button>
-              <button class="todo__btn todo__btn--delete"><i class="fas fa-times"></i></button>
-            </div>
-          </li>
-          <li class="todo__li" id="test3">Umyć okna <div class="tools">
-              <button class="todo__btn todo__btn--complete"><i class="fas fa-check"></i></button>
-              <button class="todo__btn todo__btn--edit">EDIT</button>
-              <button class="todo__btn todo__btn--delete"><i class="fas fa-times"></i></button>
-            </div>
-          </li>
+      <h3 class="todo__heading">All tasks:</h3>
+      <!-- <p class="todo__alert">Brak zadań na liście.</p> -->
+      <ul class="todo__ul">
+        <!-- <li class="todo__li" id="test">
+          <div class="todo__info">
+            <span class="todo__info-priority"><i class="fa-solid fa-star star"></i></span>
+            <span class="todo__info-date">21.21.12</span>
+          </div>
+          Wypić kawę
+          <div class="todo__tools">
+            <button class="todo__btn todo__btn--complete"><i class="fas fa-check"></i></button>
+            <button class="todo__btn todo__btn--edit">EDIT</button>
+            <button class="todo__btn todo__btn--delete"><i class="fas fa-times"></i></button>
+          </div>
+        </li>
+        <li class="todo__li" id="test">
+          <div class="todo__info">
+            <span class="todo__info-priority"><i class="fa-solid fa-star star star--checked"></i></span>
+            <span class="todo__info-date">21.21.12</span>
+          </div>
+          Wypić kawęeeeeeeeeeee
+          <div class="todo__tools">
+            <button class="todo__btn todo__btn--complete"><i class="fas fa-check"></i></button>
+            <button class="todo__btn todo__btn--edit">EDIT</button>
+            <button class="todo__btn todo__btn--delete"><i class="fas fa-times"></i></button>
+          </div>
+        </li> -->
       </ul>
     </section>
   </main>
 
-  
+
 
   <div class="popup">
     <h3 class="popup__header">Edytuj zadanie:</h3>

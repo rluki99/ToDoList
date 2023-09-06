@@ -1,15 +1,36 @@
 class Task {
-	constructor(description, date, importance) {
+	constructor(description, dueDate, priority) {
 		this.description = description
-		this.date = date
-		this.importance = importance
+		this.dueDate = dueDate
+		this.priority = priority
 	}
 }
 
-const createToolsArea = () => {
+const createInfoArea = (displayTask, task) => {
+	const infoPanel = document.createElement('div')
+	infoPanel.classList.add('todo__info')
+	displayTask.appendChild(infoPanel)
+
+	const priorityInfo = document.createElement('span')
+	priorityInfo.classList.add('todo__info-priority')
+	const star = document.createElement('i')
+	star.classList.add('fa-solid','fa-star','star')
+	if(task.priority.checked) {
+		star.classList.add('star--checked')
+	}
+	infoPanel.appendChild(priorityInfo)
+	priorityInfo.appendChild(star)
+
+	const dateInfo = document.createElement('span')
+	dateInfo.classList.add('todo__info-date')
+	dateInfo.innerText = task.dueDate.value
+	infoPanel.appendChild(dateInfo)
+}
+
+const createToolsArea = (displayTask) => {
 	const toolsPanel = document.createElement('div')
 	toolsPanel.classList.add('todo__tools')
-	// .appendChild(toolsPanel)
+	displayTask.appendChild(toolsPanel)
 
 	const completeBtn = document.createElement('button')
 	completeBtn.classList.add('todo__btn', 'todo__btn--complete')
@@ -26,5 +47,16 @@ const createToolsArea = () => {
 	toolsPanel.append(completeBtn, editBtn, deleteBtn)
 }
 
+const displayingTask = (task) => {
+	const todoUl = document.querySelector('.todo__ul')
+	const displayTask = document.createElement('li')
+    displayTask.classList.add('todo__li')
+    displayTask.innerHTML = task.description.value
+    todoUl.appendChild(displayTask)
+	
+	createInfoArea(displayTask, task)
+	createToolsArea(displayTask)
+}
+
 export default Task
-export { createToolsArea }
+export { displayingTask }
