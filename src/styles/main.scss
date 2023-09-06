@@ -16,12 +16,6 @@ body {
 	background-color: $light;
 }
 
-h1 {
-	margin-bottom: 20px;
-	color: $light;
-	text-transform: uppercase;
-}
-
 .wrapper {
 	width: 100%;
 	max-width: 800px;
@@ -32,13 +26,18 @@ h1 {
 	width: 100%;
 	text-align: center;
 	background-image: $gradient;
-	padding-block: 30px;
+	padding-block: 25px;
+	position: relative;
+	z-index: 2;
 
-	&__header {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 40px;
-		border-radius: 5px 5px 0 0;
+	&__heading {
+		margin-bottom: 20px;
+		color: $light;
+		font-size: 40px;
+		
+		span {
+			color: $deep-dark;
+		}
 	}
 
 	&__input {
@@ -71,28 +70,31 @@ h1 {
 .main {
 	display: flex;
 	width: 100%;
-	height: calc(100vh - 154px);
+	height: calc(100vh - 152px);
 }
 
 .side {
 	background-color: $green;
-	width: 350px;
+	width: 320px;
 	height: 100%;
-	padding-inline: 25px;
+	padding-inline: 35px;
+	box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 
 	&__heading {
 		font-size: 26px;
 		position: relative;
-		margin-block: 15px;
+		margin-block: 20px;
+		text-shadow: 1px 1px 1px $green-dark;
 
 		&::after {
 			content: '';
 			position: absolute;
-			bottom: -5px;
-			left: -10px;
-			width: 100%;
+			bottom: -8px;
+			left: -5px;
+			width: 90%;
 			height: 3px;
-			background-color: $light-dark;
+			background-image: $gradient;
 		}
 	}
 
@@ -109,6 +111,10 @@ h1 {
 		font-size: 18px;
 		transition: background-color 0.3s;
 
+		&--active {
+			background-color: $green-light;
+		}
+
 		&:hover {
 			background-color: $green-dark;
 		}
@@ -123,8 +129,8 @@ h1 {
 	padding: 20px;
 	text-align: center;
 	background: $white;
-	box-shadow: $shadow;
-	width: calc(100% - 350px);
+	width: calc(100% - 320px);
+	overflow-y: scroll;
 
 	&__heading {
 		text-transform: uppercase;
