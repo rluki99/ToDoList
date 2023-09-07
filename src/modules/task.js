@@ -1,8 +1,9 @@
 class Task {
-	constructor(description, dueDate, priority) {
+	constructor(description, dueDate, priority, project) {
 		this.description = description
 		this.dueDate = dueDate
 		this.priority = priority
+		this.project = project
 	}
 }
 
@@ -23,7 +24,7 @@ const createInfoArea = (displayTask, task) => {
 
 	const dateInfo = document.createElement('span')
 	dateInfo.classList.add('todo__info-date')
-	dateInfo.innerText = task.dueDate.value
+	dateInfo.innerText = task.dueDate
 	infoPanel.appendChild(dateInfo)
 }
 
@@ -51,7 +52,7 @@ const displayingTask = (task) => {
 	const todoUl = document.querySelector('.todo__ul')
 	const displayTask = document.createElement('li')
     displayTask.classList.add('todo__li')
-    displayTask.innerHTML = task.description.value
+    displayTask.innerHTML = task.description
     todoUl.appendChild(displayTask)
 	
 	createInfoArea(displayTask, task)

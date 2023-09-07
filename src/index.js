@@ -1,5 +1,7 @@
 import Task from './modules/task'
 import { displayingTask } from './modules/task'
+// import Project from './modules/project'
+import ProjectManager from './modules/projectManager'
 import './styles/main.scss'
 
 const taskDescription = document.querySelector('.header__input-txt')
@@ -9,18 +11,29 @@ const taskPriority = document.querySelector('.header__input-importance')
 const addTask = document.querySelector('.header__btn')
 const todoUl = document.querySelector('.todo__ul')
 
+const projectManager = new ProjectManager()
+const demo = projectManager.addProject("Demo")
+
 const creatingTask = () => {
-	if (taskDescription.value && taskDate.value) {
-		const newTask = new Task(taskDescription, taskDate, taskPriority)
+	if (taskDescription.value && taskDate.value && taskProjectSelect.value) {
+		const newTask = new Task(taskDescription.value, taskDate.value, taskPriority.checked, taskProjectSelect.value)
+		
+		projectManager.addTaskToProject(demo,newTask)
+
 		displayingTask(newTask)
 
-		taskDescription.value = ''
-		taskDate.value = ''
-		taskPriority.checked = false
+		clearInputs()
 	} else return
 }
 
-const checkClick = e => {
+const clearInputs = () => {
+	taskDescription.value = ''
+	taskDate.value = ''
+	taskPriority.checked = false
+	taskProjectSelect.value = ''
+}
+
+const checkClick = (e) => {
 	if (e.target.classList.value !== '') {
 		if (e.target.closest('button').classList.contains('todo__btn--complete')) {
 			e.target.closest('li').classList.toggle('todo__li--complete')
