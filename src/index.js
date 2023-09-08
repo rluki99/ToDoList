@@ -46,5 +46,15 @@ const checkClick = (e) => {
 	}
 }
 
+const refreshProjectDisplay = () => {
+	todoUl.innerHTML = ''
+
+	project.forEach((task) => renderTask(task))
+}
+
+const renderTask = (task) => {
+	
+}
+
 addTask.addEventListener('click', creatingTask)
 todoUl.addEventListener('click', checkClick)
